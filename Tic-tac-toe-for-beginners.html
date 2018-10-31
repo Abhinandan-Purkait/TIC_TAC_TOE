@@ -1,0 +1,240 @@
+<html>
+
+<head>
+    <title>HEY</title>
+    <script>
+
+var cnt=1;
+var player1,player2;
+var i=0,j=0,k=1,x=0,l=0;
+var mylist=[0,0,0,0,0,0,0,0,0];
+var mylist1=[0,0,0,0,0];
+var mylist2=[0,0,0,0];
+var flag=false;
+
+function foo(){
+    player1 = document.getElementById('player1').value;
+    player2 = document.getElementById('player2').value;
+}
+
+function toggle_visibility(id,id1) {
+    var e = document.getElementById(id);
+    var f = document.getElementById(id1);
+    if(e.style.display == 'none')
+        e.style.display = 'block';
+    else
+        e.style.display = 'none';
+
+    if(f.style.display == 'block')
+        f.style.display = 'none';
+    else
+        f.style.display = 'block';
+}
+
+function contains1(x,y,z)
+{
+    var c,count=0;
+    for(c=0;c<5;c++)
+    {
+        if(mylist1[c]==x||mylist1[c]==y||mylist1[c]==z)
+            count++;
+    }
+    if(count==3)
+    return 1;
+    else
+    return 0;
+}
+
+function contains2(x,y,z)
+{
+    var c,count=0;
+    for(c=0;c<5;c++)
+    {
+        if(mylist2[c]==x||mylist2[c]==y||mylist2[c]==z)
+            count++;
+    }
+    if(count==3)
+    return 1;
+    else
+    return 0;
+}
+
+function contains3(x)
+{
+    var c,count=0;
+    for(c=0;c<9;c++)
+    {
+        if(mylist[c]==x)
+            return 1;
+    }
+    return 0;
+}
+
+function player(x)
+{
+    mylist[l++]=x;
+    if(cnt>9 || flag==true)
+    {
+        document.getElementById("demo1").innerHTML = "GAME OVER, HO GAYA ! HO GAYA ! BAS !";
+        return;
+    }
+    if(cnt%2==0)
+    {
+        mylist2[i]=x;
+        if(contains3(x)==1)
+            document.getElementById(x.toString()).value="O";
+        i++;
+    }
+    else
+    {
+        mylist1[j]=x;
+        if(contains3(x)==1)
+            document.getElementById(x.toString()).value="X";
+        j++;
+    }
+    if(contains1(1,2,3)==1)
+    {
+        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains1(4,5,6)==1)
+    {
+        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains1(7,8,9)==1)
+    {
+        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains1(1,4,7)==1)
+    {
+        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains1(2,5,8)==1)
+    {
+        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains1(3,6,9)==1)
+    {
+        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains1(1,5,9)==1)
+    {
+        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains1(3,5,7)==1)
+    {
+        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";flag=true;
+    }
+    //player 2
+    else if(contains2(1,2,3)==1)
+    {
+        document.getElementById("demo").innerHTML = player2 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains2(4,5,6)==1)
+    {
+        document.getElementById("demo").innerHTML = player2 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains2(7,8,9)==1)
+    {
+        document.getElementById("demo").innerHTML = player2 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains2(1,4,7)==1)
+    {
+        document.getElementById("demo").innerHTML = player2 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains2(2,5,8)==1)
+    {
+        document.getElementById("demo").innerHTML = player2 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains2(3,6,9)==1)
+    {
+        document.getElementById("demo").innerHTML = player2 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains2(1,5,9)==1)
+    {
+        document.getElementById("demo").innerHTML = player2 + " WON, AB NACHO BC";flag=true;
+    }
+    else if(contains2(3,5,7)==1)
+    {
+        document.getElementById("demo").innerHTML = player2 + " WON, AB NACHO BC";flag=true;
+    }
+    else
+    {
+        if(cnt>=9)
+        {
+            document.getElementById("demo").innerHTML = "GAME DRAWN, TUM LOG KA KUCH NI HO SAKTA";flag=true;
+        }
+    }
+    cnt++;
+}
+
+
+</script>
+    <style>
+        input{
+    height:10%;
+    width:10%;
+    margin:0.2%;
+    }
+    input:disabled{
+    color: black;
+    }
+    #DABBA{
+        margin-left: 30%;
+        margin-top:10%;
+    }
+    #gameholder{
+        display: none;
+    }
+    #inputs{
+        display: block;
+    }
+</style>
+
+    <head>
+
+    <body>
+        <br>
+        <br>
+        <center>
+            <h1>BAKCHODI WALA TIC TAC TOE</h1>
+        </center>
+        <center>
+            <div id="inputs">
+                <form onsubmit="event.preventDefault();">
+                    X : <input id="player1" type="text" name="PLAYER1" required></input>
+                    <br>
+                    O : <input id="player2" type="text" name="PLAYER2" required></input>
+                    <br>
+                    <input id="player2" type="submit" name="SUBMIT" value="GO" style="margin-left: 23px;" onclick="toggle_visibility('gameholder','inputs');foo();"></input>
+                </form>
+            </div>
+        </center>
+        <center>
+            <p id="demo1"></p>
+        </center>
+        <br>
+        <br>
+        <center>
+            <div id="gameholder">
+                <input type="button" onclick="player(1);this.disabled = true;" value="." id="1"></input>
+                <input type="button" onclick="player(2);this.disabled = true;" value="." id="2"></input>
+                <input type="button" onclick="player(3);this.disabled = true;" value="." id="3"></input>
+                <br>
+                <input type="button" onclick="player(4);this.disabled = true;" value="." id="4"></input>
+                <input type="button" onclick="player(5);this.disabled = true;" value="." id="5"></input>
+                <input type="button" onclick="player(6);this.disabled = true;" value="." id="6"></input>
+                <br>
+                <input type="button" onclick="player(7);this.disabled = true;" value="." id="7"></input>
+                <input type="button" onclick="player(8);this.disabled = true;" value="." id="8"></input>
+                <input type="button" onclick="player(9);this.disabled = true;" value="." id="9"></input>
+                <br>
+                <br>
+            </div>
+        </center>
+        <center>
+            <p id="demo"></p>
+        </center>
+
+    </body>
+
+</html>
