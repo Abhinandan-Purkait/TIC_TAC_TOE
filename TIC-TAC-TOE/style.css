@@ -1,0 +1,30 @@
+input {
+    height: 10%;
+    width: 10%;
+    margin: 0.2%;
+}
+
+input:disabled {
+    color: black;
+}
+
+#DABBA {
+    margin-left: 30%;
+    margin-top: 10%;
+}
+
+#gameholder {
+    display: none;
+}
+
+#inputs {
+    display: block;
+}
+
+#demo{
+    display: block;
+}
+
+#demo1{
+    display: block;
+}

@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <br>
+    <br>
+    <center>
+        <h1>BAKCHODI WALA TIC TAC TOE</h1>
+    </center>
+    <center>
+        <div id="inputs">
+            <form onsubmit="event.preventDefault();">
+                X : <input id="player1" type="text" name="PLAYER1" required></input>
+                <br>
+                O : <input id="player2" type="text" name="PLAYER2" required></input>
+                <br>
+                <input id="player2" type="submit" name="SUBMIT" value="GO" style="margin-left: 23px;" onclick="toggle_visibility('gameholder','inputs');foo();"></input>
+            </form>
+        </div>
+    </center>
+    <center>
+        <p id="demo1"></p>
+    </center>
+    <br>
+    <br>
+    <center>
+        <p id="oncancel"></p>
+        <div id="gameholder">
+            <div id="maingame">
+                <input type="button" onclick="player(1);this.disabled = true;" value="." id="1"></input>
+                <input type="button" onclick="player(2);this.disabled = true;" value="." id="2"></input>
+                <input type="button" onclick="player(3);this.disabled = true;" value="." id="3"></input>
+                <br>
+                <input type="button" onclick="player(4);this.disabled = true;" value="." id="4"></input>
+                <input type="button" onclick="player(5);this.disabled = true;" value="." id="5"></input>
+                <input type="button" onclick="player(6);this.disabled = true;" value="." id="6"></input>
+                <br>
+                <input type="button" onclick="player(7);this.disabled = true;" value="." id="7"></input>
+                <input type="button" onclick="player(8);this.disabled = true;" value="." id="8"></input>
+                <input type="button" onclick="player(9);this.disabled = true;" value="." id="9"></input>
+                <br>
+                <br>
+                <input type="button" onclick="canceler();" value="CANCEL" id=""></input>
+                <input type="button" onclick="reset();" value="RESTART" id=""></input>
+                <input type="button" onclick="reloader();" value="NEW GAME" id=""></input>
+            </div>
+            <div id="scores">
+                <p id="playerscore1"></p>
+                <br>
+                <p id="playerscore2"></p>
+                <br>
+            </div>
+        </div>
+    </center>
+    <center>
+        <p id="demo"></p>
+    </center>
+
+</body>
+
+</html>
