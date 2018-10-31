@@ -1,2 +1,2 @@
 # TIC_TAC_TOE
-Simple Tictactoe game for begginers so built on javascript.
+Simple Tictactoe game for beginners, built completely using javascript.
