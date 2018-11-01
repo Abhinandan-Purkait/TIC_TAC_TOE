@@ -11,17 +11,25 @@ var mylist = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 var mylist1 = [0, 0, 0, 0, 0];
 var mylist2 = [0, 0, 0, 0];
 var flag = false;
+var playerswitch = 1;
 
 function canceler() {
     var e = document.getElementById('gameholder');
     e.style.display = 'none';
+    var f = document.getElementById('demo');
+    f.style.display = 'none';
+    var g = document.getElementById('demo1');
+    g.style.display = 'none';
 
     if (score1 > score2)
         document.getElementById("oncancel").innerHTML = player1 + " WON !! CONGRATULATIONS";
-    else if(score1 < score2)
+    else if (score1 < score2)
         document.getElementById("oncancel").innerHTML = player2 + " WON !! CONGRATULATIONS";
     else
-        document.getElementById("oncancel").innerHTML = " LOL !! GAME DRAWN";
+        document.getElementById("oncancel").innerHTML = "LOL !! GAME DRAWN";
+
+    var e = document.getElementById('load');
+    e.style.display = 'block';
 }
 
 function reloader() {
@@ -30,7 +38,10 @@ function reloader() {
 
 function reset() {
     var c;
-    cnt = 0;
+    if ((playerswitch % 2) == 0)
+        cnt = 1;
+    else
+        cnt = 0;
     i = j = x = l = 0;
     k = 1;
     mylist = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -48,22 +59,39 @@ function reset() {
     var f = document.getElementById('demo1');
     if (f.style.display == 'block')
         f.style.display = 'none';
+
+    if ((playerswitch % 2) == 0) {
+        var e = document.getElementById('demo1');
+        e.style.display = 'block';
+        document.getElementById("demo1").innerHTML = player1 + " GOES FIRST THIS TIME";
+    } else {
+        var e = document.getElementById('demo1');
+        e.style.display = 'block';
+        document.getElementById("demo1").innerHTML = player2 + " GOES FIRST THIS TIME";
+    }
+    playerswitch++;
 }
 
 function foo() {
     player1 = document.getElementById('player1').value;
     player2 = document.getElementById('player2').value;
+    if (player1.length == 0 || player2.length == 0)
+        location.reload();
+    var f = document.getElementById('chupao');
+    f.style.display = 'none';
+    player1 = player1.toUpperCase();
+    player2 = player2.toUpperCase();
 }
 
 function toggle_visibility(id, id1) {
     var e = document.getElementById(id);
     var f = document.getElementById(id1);
-    if (e.style.display == 'none')
+    if (window.getComputedStyle(e,null).getPropertyValue("display") == 'none')
         e.style.display = 'block';
     else
         e.style.display = 'none';
-
-    if (f.style.display == 'block')
+    
+    if (window.getComputedStyle(e,null).getPropertyValue("display") == 'block')
         f.style.display = 'none';
     else
         f.style.display = 'block';
@@ -107,7 +135,7 @@ function player(x) {
     if (cnt > 9 || flag == true) {
         var f = document.getElementById('demo1');
         f.style.display = 'block';
-        document.getElementById("demo1").innerHTML = "GAME OVER, HO GAYA ! HO GAYA ! BAS !";
+        document.getElementById("demo1").innerHTML = "GAME OVER, PRESS RESTART";
         return;
     }
     if (cnt % 2 == 0) {
@@ -127,7 +155,7 @@ function player(x) {
             e.style.display = 'none';
         else
             e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player1 + " WON, ONE POINT ADDED";
         score1++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -136,7 +164,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player1 + " WON, ONE POINT ADDED";
         score1++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -145,7 +173,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player1 + " WON, ONE POINT ADDED";
         score1++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -154,7 +182,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player1 + " WON, ONE POINT ADDED";
         score1++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -163,7 +191,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player1 + " WON, ONE POINT ADDED";
         score1++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -172,7 +200,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player1 + " WON, ONE POINT ADDED";
         score1++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -181,7 +209,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player1 + " WON, ONE POINT ADDED";
         score1++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -190,7 +218,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player1 + " WON, ONE POINT ADDED";
         score1++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -201,7 +229,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player2 + " WON, ONE POINT ADDED";
         score2++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -210,7 +238,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player2 + " WON, ONE POINT ADDED";
         score2++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -219,7 +247,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player2 + " WON, ONE POINT ADDED";
         score2++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -228,7 +256,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player2 + " WON, ONE POINT ADDED";
         score2++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -237,7 +265,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player2 + " WON, ONE POINT ADDED";
         score2++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -246,7 +274,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player2 + " WON, ONE POINT ADDED";
         score2++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -255,7 +283,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player2 + " WON, ONE POINT ADDED";
         score2++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -264,7 +292,7 @@ function player(x) {
         var e = document.getElementById('demo');
         if (e.style.display == 'block') e.style.display = 'none';
         else e.style.display = 'block';
-        document.getElementById("demo").innerHTML = player1 + " WON, AB NACHO BC";
+        document.getElementById("demo").innerHTML = player2 + " WON, ONE POINT ADDED";
         score2++;
         flag = true;
         document.getElementById("playerscore1").innerHTML = player1 + " : " + score1;
@@ -274,7 +302,7 @@ function player(x) {
             var e = document.getElementById('demo');
             if (e.style.display == 'block') e.style.display = 'none';
             else e.style.display = 'block';
-            document.getElementById("demo").innerHTML = "GAME DRAWN, TUM LOG KA KUCH NI HO SAKTA";
+            document.getElementById("demo").innerHTML = "GAME DRAWN, ONE POINT ADDED TO BOTH";
             score2++;
             score1++;
             flag = true;
